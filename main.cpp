@@ -31,7 +31,7 @@ double calcularTarifa(int horas, int dia) {
     double totalPagar = 0.0;
 
 
-    if (horas <= 1) {
+    if (horas == 1) {
         totalPagar = TARIFA_PRIMERA_HORA;
     } else if (horas > 1 && horas <= 3) {
         totalPagar = TARIFA_PRIMERA_HORA + (TARIFA_1_A_3 * (horas - 1));
