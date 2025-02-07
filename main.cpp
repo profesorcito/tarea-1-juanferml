@@ -1,13 +1,18 @@
 #include <iostream>
-
+// hola
 using namespace std;
 
-// TODO: Implementar función para calcular la suma de los dígitos de un número
 int sumaDigitos(int n) {
-    // Completa esta función
+    int suma = 0;
+    while (n > 0) {
+        suma += n % 10;
+        n /= 10;
+    }
+    return suma;
 }
 
-// TODO: Implementar la lógica para calcular la tarifa
+
+
 double calcularTarifa(int horas, int dia) {
     const double TARIFA_PRIMERA_HORA = 6.00;
     const double TARIFA_1_A_3 = 4.00;
@@ -24,24 +29,22 @@ double calcularTarifa(int horas, int dia) {
 
     double totalPagar = 0.0;
 
-    // TODO: Implementar la lógica para calcular la tarifa base
-    if (horas == 1) {
-        // Completa aquí
+
+    if (horas <= 1) {
+        totalPagar = TARIFA_PRIMERA_HORA;
     } else if (horas > 1 && horas <= 3) {
-        // Completa aquí
+        totalPagar = TARIFA_PRIMERA_HORA + (TARIFA_1_A_3 * (horas - 1));
     } else if (horas > 3 && horas <= 5) {
-        // Completa aquí
+        totalPagar = TARIFA_PRIMERA_HORA + (TARIFA_1_A_3 * 2) + (TARIFA_3_A_5 * (horas - 3));
     } else {
-        // Completa aquí
+        totalPagar = TARIFA_FIJA;
     }
 
-    // TODO: Aplicar incremento si es fin de semana
-    if (/* Completa esta condición */1) {
+    if (dia == 6 || dia == 7) {
         totalPagar *= INCREMENTO_FIN_SEMANA;
     }
 
-    // TODO: Aplicar descuento si la suma de los dígitos es múltiplo de 3
-    if (/* Completa esta condición */1) {
+    if (sumaDigitos(horas) % 3 == 0) {
         totalPagar *= DESCUENTO_DIGITOS;
     }
 
@@ -49,8 +52,8 @@ double calcularTarifa(int horas, int dia) {
 }
 
 int main() {
-    int horas, dia;
-
+    int horas,dia;
+    cout << "Ingresa las horas y el dia (Lunes = 1 / Domingo = 7)";
     // Leer los valores de entrada
     cin >> horas >> dia;
 
