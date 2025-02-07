@@ -54,7 +54,7 @@ double calcularTarifa(int horas, int dia) {
 
 int main() {
     int horas,dia;
-    cout << "Ingresa las horas y el dia (Lunes = 1 / Domingo = 7)";
+    //cout << "Ingresa las horas y el dia (Lunes = 1 / Domingo = 7)";
     // Leer los valores de entrada
     cin >> horas >> dia;
 
